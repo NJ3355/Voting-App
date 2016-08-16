@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="votingApp">
+  <head>
+    <title>Voting App</title>
+
+    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.js"></script>
+    <script src="app/app.js"></script>
+
+    
+  </head>
+  <body ng-controller="VotingController">
+{{poll.question}}
+    <div id="content">
+      <div id="menu-bar">
+        <h2>Voting Poll</h1>
+      </div>
+
+      <div id="pollContent">
+        <h1>Create Poll</h1>
+        <hr/>
+
+        <p>Question</p>
+        <input type="text" ng-model="poll.question" />
+
+        <p>Answers</p>
+        <input type="text"  />
+        <input type="text" />
+        <input type="text" />
+
+      </div>
+    </div>
+    
+
+
+
+
+  </body>
+</html>
