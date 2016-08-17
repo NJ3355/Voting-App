@@ -50,25 +50,44 @@ var votingApp = angular.module('votingApp', ['ngRoute', 'ngAnimate']);
 
 votingApp.controller('VotingController', ['$scope', '$http', function($scope, $http){
 		
-	
-		$scope.hello = 'hell12312o';
+		$scope.pollAnswers = document.getElementById('answers');
+		
 		$scope.poll = {
-			question: 'hello',
+			question: '',
 			answers: []
 		};
 
+		$scope.choices = [];
+
 	//Available shifts main functions
 
-	$scope.removeShift = function(shift){
-		var removeShift = $scope.shifts.indexOf(shift);
+	$scope.addAnswer = function(shift){
+		var node = document.createElement("LI");
+		var textnode = document.createElement("input");
+		textnode.setAttribute('type', 'text');
+		textnode.setAttribute('ng-model', $scope.choices.length);
+		node.appendChild(textnode);
 		
-		shift.available = false;
-		$scope.myShifts.push(shift);
-		$scope.shifts.splice(removeShift, 1);
+		$scope.pollAnswers.appendChild(node);
 
-		
+
+
+		/*var i = $scope.choices.length;
+		$scope.pollAnswers.innerHTML += "<li><input type='text' ng-model='choices[" + i + "]'  /></li>";	
+		console.log($scope.choices.length);	*/
 	};
 
+	$scope.createPoll = function() {
+		console.log($scope.pollAnswers.child.length);
+
+		for(var i = 0; i < $scope.choices.length; i++ )
+		$scope.poll.answers.push({
+			answer: $scope.choices[i],
+			score: 0
+		});
+
+	console.log($scope.poll);
+	};
 
 
 

@@ -15,6 +15,10 @@
   margin: auto; }
   #pollContent hr {
     margin: 30px 0; }
-  #pollContent input {
-    display: block;
-    margin: 2em 0px; }
+  #pollContent p {
+    margin: 2em 0; }
+  #pollContent li {
+    list-style: none;
+    margin: 1em 0px; }
+  #pollContent #create {
+    float: right; }

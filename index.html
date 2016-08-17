@@ -12,25 +12,34 @@
     
   </head>
   <body ng-controller="VotingController">
-{{poll.question}}
+
     <div id="content">
       <div id="menu-bar">
         <h2>Voting Poll</h1>
       </div>
 
       <div id="pollContent">
-        <h1>Create Poll</h1>
+        <h1>Create New Poll</h1>
         <hr/>
 
-        <p>Question</p>
-        <input type="text" ng-model="poll.question" />
+        <form ng-submit="createPoll()">
+            <p>Question</p>
+            <input type="text" ng-model="pollQuestion" />
 
-        <p>Answers</p>
-        <input type="text"  />
-        <input type="text" />
-        <input type="text" />
-
+            <p>Answers</p>
+          <ul id="answers">
+            <li><input type="text" placeholder=" " ng-model="choices[0]" /></li>
+            <li><input type="text" placeholder=" "  ng-model="choices[1]" /></li>
+            <li><input type="text" placeholder=" "  ng-model="choices[2]" /></li>
+          </ul>
+          <input id="create" type="submit" value="Create Poll" />
+        </form>
+        <button ng-click="addAnswer()">Add Another</button>
+        <hr/>
+        
+        
       </div>
+
     </div>
     
 
