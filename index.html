@@ -12,7 +12,7 @@
     
   </head>
   <body ng-controller="VotingController">
-
+{{choices}}
     <div id="content">
       <div id="menu-bar">
         <h2>Voting Poll</h1>
@@ -28,16 +28,14 @@
 
             <p>Answers</p>
           <ul id="answers">
-            <li><input type="text" placeholder=" " ng-model="choices[0]" /></li>
-            <li><input type="text" placeholder=" "  ng-model="choices[1]" /></li>
-            <li><input type="text" placeholder=" "  ng-model="choices[2]" /></li>
+            <answers choices="choices"></answers>
           </ul>
           <input id="create" type="submit" value="Create Poll" />
         </form>
         <button ng-click="addAnswer()">Add Another</button>
         <hr/>
         
-        
+    
       </div>
 
     </div>

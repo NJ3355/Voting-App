@@ -29,26 +29,19 @@ var votingApp = angular.module('votingApp', ['ngRoute', 'ngAnimate']);
 
 }]);*/
 
-/*votingApp.directive('randomNinja', [function(){
+votingApp.directive('answers', [function(){
 
-	return {
-		restrict: 'E',
-		scope: {
-			ninjas: '=',
-			title: '='
-		},
-		templateUrl: 'views/random.html',
-		transclude: true,
-		replace:true,
-		controller: function($scope){
-			$scope.random =  Math.floor(Math.random() * 3)
+    return {
+      restrict: 'E',
+      scope: {
+        choices: '='
+      },
+      template: '<li ng-repeat="answer in choices track by $index"><input type="text" ng-model="choices[$index]" /></li>'
+    };
 
-		}
-	};
+}]);
 
-}]);*/
-
-votingApp.controller('VotingController', ['$scope', '$http', function($scope, $http){
+votingApp.controller('VotingController', ['$scope', '$compile', '$http', function($scope, $http){
 		
 		$scope.pollAnswers = document.getElementById('answers');
 		
@@ -58,27 +51,19 @@ votingApp.controller('VotingController', ['$scope', '$http', function($scope, $h
 		};
 
 		$scope.choices = [];
-
 	//Available shifts main functions
 
-	$scope.addAnswer = function(shift){
-		var node = document.createElement("LI");
-		var textnode = document.createElement("input");
-		textnode.setAttribute('type', 'text');
-		textnode.setAttribute('ng-model', $scope.choices.length);
-		node.appendChild(textnode);
-		
-		$scope.pollAnswers.appendChild(node);
+	$scope.addAnswer = function(){
+	
+	
+		$scope.choices.push('');
 
 
 
-		/*var i = $scope.choices.length;
-		$scope.pollAnswers.innerHTML += "<li><input type='text' ng-model='choices[" + i + "]'  /></li>";	
-		console.log($scope.choices.length);	*/
 	};
 
 	$scope.createPoll = function() {
-		console.log($scope.pollAnswers.child.length);
+		$scope.poll.question = $scope.pollQuestion;
 
 		for(var i = 0; i < $scope.choices.length; i++ )
 		$scope.poll.answers.push({
