@@ -1,0 +1,31 @@
+      <div id="pollContent" ng-hide="clicked">
+        {{choices}}
+        <h1>Create New Poll</h1>
+        <hr/>
+
+        <form ng-submit="createPoll()">
+            <p>Question</p>
+            <input type="text" ng-model="pollQuestion" />
+
+            <p>Answers</p>
+          <ul id="answers">
+            <answers choices="choices"></answers>
+          </ul>
+          <input class="floatRight" ng-click="clicked=true" type="submit" value="Create Poll" />
+        </form>
+        <button ng-click="addAnswer();">Add Answer</button>
+        <hr/>
+      </div>
+
+      <div id="poll" ng-show="clicked">
+        <div id="pollQuestion">
+          <p>Question:</p>
+          <h1>{{poll.question}}</h1>
+        </div>
+        <div id="pollAnswers">
+          <ul>
+            <li <li ng-repeat="answer in poll.answers track by $index">{{answer.answer}}</li>
+          </ul>
+        </div>
+
+      </div>

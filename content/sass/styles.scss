@@ -33,9 +33,40 @@
 
 	}
 
+	form {
+		.floatRight {
+			float: right;
+		}
+	}
+
 	#create {
 		float:right;
 	}
 
 
 } 
+
+#poll {
+	width:60%; 
+	padding: 100px 0;
+	margin: auto;
+
+	#pollQuestion {
+		background-color: #e0e0e0;
+	}
+
+	#pollAnswers {
+		width: 50%;
+		margin:auto;
+		margin-top: 3em;
+
+		ul {
+			list-style: none;
+
+			li{
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
+

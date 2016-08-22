@@ -1,17 +1,17 @@
 var votingApp = angular.module('votingApp', ['ngRoute', 'ngAnimate']);
 
-/*votingApp.config(['$routeProvider', function($routeProvider){
+votingApp.config(['$routeProvider', function($routeProvider){
 
 	$routeProvider
-		.when('/home', {
-			templateUrl: 'views/home.html',
-			controller: 'scheduleController'
+		.when('/create', {
+			templateUrl: 'views/create.html',
+			controller: 'VotingController'
 		})
-		.when('/contact', {
-			templateUrl: 'views/contact.html',
-			controller: 'ContactController'
+		.when('/poll', {
+			templateUrl: 'views/poll.html',
+			controller: 'VotingController'
 		})
-		.when('/contact-success', {
+		/*.when('/contact-success', {
 			templateUrl: 'views/contact-success.html',
 			controller: 'ContactController'
 		})
@@ -22,12 +22,12 @@ var votingApp = angular.module('votingApp', ['ngRoute', 'ngAnimate']);
 		.when('/myshifts', {
 			templateUrl: 'views/myshifts.html',
 			controller: 'ScheduleController'
-		})
+		})*/
 		.otherwise({
-			redirectTo: '/home'
+			redirectTo: '/create'
 		});
 
-}]);*/
+}]);
 
 votingApp.directive('answers', [function(){
 
@@ -41,7 +41,7 @@ votingApp.directive('answers', [function(){
 
 }]);
 
-votingApp.controller('VotingController', ['$scope', '$compile', '$http', function($scope, $http){
+votingApp.controller('VotingController', ['$scope', '$location', function($scope, $location){
 		
 		$scope.pollAnswers = document.getElementById('answers');
 		
@@ -72,6 +72,12 @@ votingApp.controller('VotingController', ['$scope', '$compile', '$http', functio
 		});
 
 	console.log($scope.poll);
+	};
+
+	$scope.redirect = function(path){
+
+		 $location.path(path);
+
 	};
 
 

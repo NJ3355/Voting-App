@@ -20,5 +20,22 @@
   #pollContent li {
     list-style: none;
     margin: 1em 0px; }
+  #pollContent form .floatRight {
+    float: right; }
   #pollContent #create {
     float: right; }
+
+#poll {
+  width: 60%;
+  padding: 100px 0;
+  margin: auto; }
+  #poll #pollQuestion {
+    background-color: #e0e0e0; }
+  #poll #pollAnswers {
+    width: 50%;
+    margin: auto;
+    margin-top: 3em; }
+    #poll #pollAnswers ul {
+      list-style: none; }
+      #poll #pollAnswers ul li {
+        margin-bottom: 1em; }
