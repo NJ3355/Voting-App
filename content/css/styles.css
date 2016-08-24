@@ -37,5 +37,7 @@
     margin-top: 3em; }
     #poll #pollAnswers ul {
       list-style: none; }
+      #poll #pollAnswers ul button {
+        float: right; }
       #poll #pollAnswers ul li {
         margin-bottom: 1em; }

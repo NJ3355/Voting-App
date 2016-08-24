@@ -68,7 +68,8 @@ votingApp.controller('VotingController', ['$scope', '$location', function($scope
 		for(var i = 0; i < $scope.choices.length; i++ )
 		$scope.poll.answers.push({
 			answer: $scope.choices[i],
-			score: 0
+			score: 0,
+			progress: 1
 		});
 
 	console.log($scope.poll);
@@ -77,6 +78,13 @@ votingApp.controller('VotingController', ['$scope', '$location', function($scope
 	$scope.redirect = function(path){
 
 		 $location.path(path);
+
+	};
+
+	$scope.vote = function(answer){
+		answer.score++;
+		answer.progress++
+		//$scope.myWidth = answer.progress;
 
 	};
 
