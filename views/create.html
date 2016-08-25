@@ -26,7 +26,8 @@
      
           <ul>
             <div class="w3-progress-container" ng-repeat="answer in poll.answers track by $index">
-              <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.progress + '%'}">{{answer.answer}} {{answer.score}} </li><button ng-click="vote(answer)">Vote</button>
+              <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.progress + '%'}">{{answer.answer}}</li>
+              <button ng-click="vote(answer)">Vote</button><span id="score">{{answer.score}}</span>
             </div>
           </ul>
         </div>

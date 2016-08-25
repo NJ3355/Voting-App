@@ -37,6 +37,17 @@
 		.floatRight {
 			float: right;
 		}
+
+		 button,input {
+		  background: #fff;
+		  padding: 10px;
+		  border-radius: 10px;
+		  cursor: pointer;
+		  color: #777;
+		  border: 0;
+		  box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
+		  font-size: 16px;
+		}
 	}
 
 	#create {
@@ -70,6 +81,22 @@
 				margin-bottom: 1em;
 
 
+			}
+
+			.w3-progress-container {
+				margin-bottom:2em;
+
+			}
+
+			button,input {
+			  background: #fff;
+			  padding: 10px;
+			  border-radius: 10px;
+			  cursor: pointer;
+			  color: #777;
+			  border: 0;
+			  box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
+			  font-size: 16px;
 			}
 		}
 	}
