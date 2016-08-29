@@ -2,17 +2,22 @@
         <h1>Create New Poll</h1>
         <hr/>
 
-        <form ng-submit="createPoll()">
+        <form name="pollForm" ng-submit="createPoll()" novalidate>
             <p>Question</p>
-            <input type="text" ng-model="pollQuestion" />
+            <input name="question" type="text" ng-model="pollQuestion" ng-required="true" />
+            <span>
+            <div ng-show="pollForm.question.$touched && pollForm.question.$invalid">
+              <small style="color:red; display: block; margin-top: 1em">Enter a Question</small>
+            </div>
+            </span>
 
             <p>Answers</p>
           <ul id="answers">
             <answers choices="choices"></answers>
           </ul>
-          <input class="floatRight" ng-click="clicked=true" type="submit" value="Create Poll" />
+          <input class="floatRight" ng-click="clicked=true" type="submit" ng-disabled="pollForm.$invalid" value="Create Poll" />
         </form>
-        <button ng-click="addAnswer();">Add Answer</button>
+        <button ng-click="addAnswer();">Add Answer  <i class="fa fa-plus" aria-hidden="true"></i></button>
         <hr/>
       </div>
 
@@ -26,10 +31,12 @@
           <ul>
             <div class="w3-progress-container" ng-repeat="answer in poll.answers track by $index">
               <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.percent + '%'}">{{answer.answer}}</li>
-              <button ng-click="vote(answer)">Vote</button>
+              <button id="voting" ng-click="vote(answer)">Vote</button>
               <br/><span id="score">{{answer.percent}}%</span>
             </div>
           </ul>
         </div>
+        <hr/>
+        <button ng-click="reload();"><i class="fa fa-arrow-left" aria-hidden="true"></i> Create New Poll</button>
 
       </div>
