@@ -6,7 +6,7 @@
   width: 100%;
   padding: 1em 0;
   background-color: teal; }
-  #menu-bar h2 {
+  #menu-bar h1 {
     margin-left: 1em; }
 
 #pollContent {
@@ -49,15 +49,33 @@
       #poll #pollAnswers ul button {
         float: right; }
       #poll #pollAnswers ul li {
-        margin-bottom: 1em; }
-      #poll #pollAnswers ul .w3-progress-container {
         margin-bottom: 2em; }
-      #poll #pollAnswers ul button, #poll #pollAnswers ul input {
-        background: #fff;
-        padding: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-        color: #777;
-        border: 0;
-        box-shadow: 2px 2px 2px rgba(20, 20, 20, 0.1);
-        font-size: 16px; }
+      #poll #pollAnswers ul .w3-progress-container {
+        margin-bottom: 4em;
+        position: relative; }
+        #poll #pollAnswers ul .w3-progress-container button, #poll #pollAnswers ul .w3-progress-container input {
+          background: #fff;
+          padding: 10px;
+          border-radius: 10px;
+          cursor: pointer;
+          color: #777;
+          border: 0;
+          box-shadow: 2px 2px 2px rgba(20, 20, 20, 0.1);
+          font-size: 16px;
+          position: absolute;
+          top: 25px;
+          right: 0; }
+
+.ng-enter {
+  transition: 0.75s;
+  opacity: 0; }
+
+.ng-enter-active {
+  opacity: 1; }
+
+.ng-leave {
+  transition: 0.75s;
+  opacity: 1; }
+
+.ng-leave-active {
+  opacity: 0; }

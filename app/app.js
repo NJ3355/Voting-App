@@ -47,6 +47,7 @@ votingApp.controller('VotingController', ['$scope', '$location', function($scope
 		
 		$scope.poll = {
 			question: '',
+			totalVotes: 0,
 			answers: []
 		};
 
@@ -69,7 +70,7 @@ votingApp.controller('VotingController', ['$scope', '$location', function($scope
 		$scope.poll.answers.push({
 			answer: $scope.choices[i],
 			score: 0,
-			progress: 1
+			percent: 0
 		});
 
 	console.log($scope.poll);
@@ -84,7 +85,19 @@ votingApp.controller('VotingController', ['$scope', '$location', function($scope
 	$scope.vote = function(answer){
 		answer.score++;
 		answer.progress++
-		//$scope.myWidth = answer.progress;
+		$scope.poll.totalVotes++;
+
+		$scope.calcPercent();
+		
+
+	};
+
+	$scope.calcPercent = function(){
+		
+
+		for(var i = 0; i < $scope.poll.answers.length; i++){
+			$scope.poll.answers[i].percent = Math.round(($scope.poll.answers[i].score/$scope.poll.totalVotes) * 100);
+		}
 
 	};
 

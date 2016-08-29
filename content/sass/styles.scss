@@ -8,7 +8,7 @@
 	padding: 1em 0;
 	background-color: teal;
 
-	h2 {
+	h1 {
 		margin-left:1em;
 	}
 }
@@ -17,6 +17,7 @@
 	width:60%; 
 	padding: 100px 0;
 	margin: auto;
+
 
 	hr {
 		margin:30px 0;
@@ -71,6 +72,7 @@
 		margin:auto;
 		margin-top: 3em;
 
+
 		ul {
 			list-style: none;
 			button {
@@ -78,27 +80,48 @@
 				}
 
 			li{
-				margin-bottom: 1em;
+				margin-bottom: 2em;
 
 
 			}
 
 			.w3-progress-container {
-				margin-bottom:2em;
+				margin-bottom:4em;
+				position:relative;
+
+				button,input {
+				  background: #fff;
+				  padding: 10px;
+				  border-radius: 10px;
+				  cursor: pointer;
+				  color: #777;
+				  border: 0;
+				  box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
+				  font-size: 16px;
+				  position: absolute;
+				  top:25px;
+				  right: 0;
+				}
 
 			}
 
-			button,input {
-			  background: #fff;
-			  padding: 10px;
-			  border-radius: 10px;
-			  cursor: pointer;
-			  color: #777;
-			  border: 0;
-			  box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
-			  font-size: 16px;
-			}
+
 		}
 	}
 }
 
+.ng-enter {
+	transition:0.75s;
+	opacity:0;
+}
+
+.ng-enter-active{
+	opacity: 1;
+}
+.ng-leave{
+	transition:0.75s;
+	opacity: 1;
+}
+.ng-leave-active{
+	opacity:0;
+}

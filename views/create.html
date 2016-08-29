@@ -1,5 +1,4 @@
       <div id="pollContent" ng-hide="clicked">
-        {{choices}}
         <h1>Create New Poll</h1>
         <hr/>
 
@@ -26,8 +25,9 @@
      
           <ul>
             <div class="w3-progress-container" ng-repeat="answer in poll.answers track by $index">
-              <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.progress + '%'}">{{answer.answer}}</li>
-              <button ng-click="vote(answer)">Vote</button><span id="score">{{answer.score}}</span>
+              <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.percent + '%'}">{{answer.answer}}</li>
+              <button ng-click="vote(answer)">Vote</button>
+              <br/><span id="score">{{answer.percent}}%</span>
             </div>
           </ul>
         </div>
