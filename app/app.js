@@ -1,3 +1,5 @@
+//pollbranch
+
 var votingApp = angular.module('votingApp', ['ngRoute', 'ngAnimate']);
 
 votingApp.config(['$routeProvider', function($routeProvider){
@@ -9,7 +11,7 @@ votingApp.config(['$routeProvider', function($routeProvider){
 		})
 		.when('/poll', {
 			templateUrl: 'views/poll.html',
-			controller: 'VotingController'
+			controller: 'PollController'
 		})
 		/*.when('/contact-success', {
 			templateUrl: 'views/contact-success.html',
@@ -41,9 +43,39 @@ votingApp.directive('answers', [function(){
 
 }]);
 
-votingApp.controller('VotingController', ['$scope', '$location', '$route', function($scope, $location, $route){
+votingApp.factory('Data', function(){
+
+	var poll = {
+			question: '',
+			totalVotes: 0,
+			answers: [],
+
+			addQuestion: function(pollRef){
+				//console.log(question);
+				poll.question = pollRef.question;
+				poll.totalVotes = pollRef.totalVotes;
+				poll.answers = pollRef.answers;
+
+			}
+		};
+
+	
+
+	return poll;
+});
+
+
+
+votingApp.controller('VotingController', ['$scope', '$location', '$route', 'Data', function($scope, $location, $route, Data){
 		
+		$scope.Data = Data;
+
+		
+
+
 		$scope.pollAnswers = document.getElementById('answers');
+
+		$scope.Data.question = "hello";
 		
 		$scope.poll = {
 			question: '',
@@ -53,6 +85,16 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 
 		$scope.choices = [];
 	//Available shifts main functions
+
+
+
+
+	$scope.test = function(){
+		Data.addQuestion($scope.pollQuestion);
+
+	};
+
+
 
 	$scope.addAnswer = function(){
 	
@@ -73,6 +115,8 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 			percent: 0
 		});
 
+	Data.addQuestion($scope.poll);
+
 	console.log($scope.poll);
 	};
 
@@ -87,6 +131,38 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 		 $route.reload();
 
 	};
+
+
+
+
+
+
+}]);
+
+
+
+
+
+
+
+
+
+votingApp.controller('PollController', ['$scope', '$location', '$route', 'Data',function($scope, $location, $route, Data){
+		
+		$scope.poll = Data;
+		
+		
+
+
+
+
+
+	$scope.redirect = function(path){
+
+		 $location.path(path);
+
+	};
+
 
 
 	$scope.vote = function(answer){

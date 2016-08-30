@@ -1,5 +1,20 @@
-      <div id="pollContent">
-        {{choices}}
-        <h1>Your Poll</h1>
+      <div id="poll">
+        <div id="pollQuestion">
+          <p>Question:</p>
+          <h1>{{poll.question}}</h1>
+
+        </div>
+        <div id="pollAnswers">
+     
+          <ul>
+            <div class="w3-progress-container" ng-repeat="answer in poll.answers track by $index">
+              <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.percent + '%'}">{{answer.answer}}</li>
+              <button id="voting" ng-click="vote(answer)">Vote</button>
+              <br/><span id="score">{{answer.percent}}%</span>
+            </div>
+          </ul>
+        </div>
+        <hr/>
+        <button ng-click="redirect('/create');"><i class="fa fa-arrow-left" aria-hidden="true"></i> Create New Poll</button>
 
       </div>
