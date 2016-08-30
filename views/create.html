@@ -1,4 +1,4 @@
-      <div id="pollContent" ng-hide="clicked">
+      <div id="pollContent" >
         <h1>Create New Poll</h1>
         <hr/>
 
@@ -15,28 +15,9 @@
           <ul id="answers">
             <answers choices="choices"></answers>
           </ul>
-          <input class="floatRight" ng-click="clicked=true" type="submit" ng-disabled="pollForm.$invalid" value="Create Poll" />
+          <input class="floatRight" ng-click="redirect('/poll')" type="submit" ng-disabled="pollForm.$invalid" value="Create Poll" />
         </form>
         <button ng-click="addAnswer();">Add Answer  <i class="fa fa-plus" aria-hidden="true"></i></button>
         <hr/>
       </div>
 
-      <div id="poll" ng-show="clicked">
-        <div id="pollQuestion">
-          <p>Question:</p>
-          <h1>{{poll.question}}</h1>
-        </div>
-        <div id="pollAnswers">
-     
-          <ul>
-            <div class="w3-progress-container" ng-repeat="answer in poll.answers track by $index">
-              <li id="myBar" class="w3-progressbar" ng-style="{'width': answer.percent + '%'}">{{answer.answer}}</li>
-              <button id="voting" ng-click="vote(answer)">Vote</button>
-              <br/><span id="score">{{answer.percent}}%</span>
-            </div>
-          </ul>
-        </div>
-        <hr/>
-        <button ng-click="reload();"><i class="fa fa-arrow-left" aria-hidden="true"></i> Create New Poll</button>
-
-      </div>
