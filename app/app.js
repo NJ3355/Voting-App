@@ -43,9 +43,39 @@ votingApp.directive('answers', [function(){
 
 }]);
 
-votingApp.controller('VotingController', ['$scope', '$location', '$route', function($scope, $location, $route){
+votingApp.factory('Data', function(){
+
+	var poll = {
+			question: '',
+			totalVotes: 0,
+			answers: [],
+
+			addQuestion: function(pollRef){
+				//console.log(question);
+				poll.question = pollRef.question;
+				poll.totalVotes = pollRef.totalVotes;
+				poll.answers = pollRef.answers;
+
+			}
+		};
+
+	
+
+	return poll;
+});
+
+
+
+votingApp.controller('VotingController', ['$scope', '$location', '$route', 'Data', function($scope, $location, $route, Data){
 		
+		$scope.Data = Data;
+
+		
+
+
 		$scope.pollAnswers = document.getElementById('answers');
+
+		$scope.Data.question = "hello";
 		
 		$scope.poll = {
 			question: '',
@@ -55,6 +85,16 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 
 		$scope.choices = [];
 	//Available shifts main functions
+
+
+
+
+	$scope.test = function(){
+		Data.addQuestion($scope.pollQuestion);
+
+	};
+
+
 
 	$scope.addAnswer = function(){
 	
@@ -75,6 +115,8 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 			percent: 0
 		});
 
+	Data.addQuestion($scope.poll);
+
 	console.log($scope.poll);
 	};
 
@@ -91,24 +133,6 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 	};
 
 
-	$scope.vote = function(answer){
-		answer.score++;
-		answer.progress++
-		$scope.poll.totalVotes++;
-
-		$scope.calcPercent();
-		
-
-	};
-
-	$scope.calcPercent = function(){
-		
-
-		for(var i = 0; i < $scope.poll.answers.length; i++){
-			$scope.poll.answers[i].percent = Math.round(($scope.poll.answers[i].score/$scope.poll.totalVotes) * 100);
-		}
-
-	};
 
 
 
@@ -121,39 +145,20 @@ votingApp.controller('VotingController', ['$scope', '$location', '$route', funct
 
 
 
-votingApp.factory('Data', function(){
-
-	return {
-			data: {
-			question: '',
-			totalVotes: 0,
-			answers: []
-		};
-	}
-
-});
 
 
-
-votingApp.controller('PollController', ['$scope', '$location', '$route', function($scope, $location, $route){
+votingApp.controller('PollController', ['$scope', '$location', '$route', 'Data',function($scope, $location, $route, Data){
 		
-		$scope.pollAnswers = document.getElementById('answers');
+		$scope.poll = Data;
 		
-		$scope.poll = {
-			question: '',
-			totalVotes: 0,
-			answers: []
-		};
-
-		$scope.choices = [];
-	//Available shifts main functions
+		
 
 
 
 
 
 	$scope.redirect = function(path){
-console.log(path);
+
 		 $location.path(path);
 
 	};
