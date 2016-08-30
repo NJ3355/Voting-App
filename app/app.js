@@ -36,12 +36,12 @@ votingApp.directive('answers', [function(){
       scope: {
         choices: '='
       },
-      template: '<li ng-repeat="answer in choices track by $index"><input type="text" ng-model="choices[$index]" /></li>'
+      template: '<li ng-repeat="answer in choices track by $index"><input type="text" name="answer" ng-model="choices[$index]" ng-required="true" /></li>'
     };
 
 }]);
 
-votingApp.controller('VotingController', ['$scope', '$location', function($scope, $location){
+votingApp.controller('VotingController', ['$scope', '$location', '$route', function($scope, $location, $route){
 		
 		$scope.pollAnswers = document.getElementById('answers');
 		
@@ -81,6 +81,13 @@ votingApp.controller('VotingController', ['$scope', '$location', function($scope
 		 $location.path(path);
 
 	};
+
+	$scope.reload = function(){
+
+		 $route.reload();
+
+	};
+
 
 	$scope.vote = function(answer){
 		answer.score++;

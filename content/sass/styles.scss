@@ -1,6 +1,14 @@
+$font-stack: 'Lato', sans-serif;
+
+
 *{
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	font-family: $font-stack;
+	background-color: #e2e2e2;
 }
 
 #menu-bar {
@@ -10,6 +18,7 @@
 
 	h1 {
 		margin-left:1em;
+		font-family: $font-stack;
 	}
 }
 
@@ -18,13 +27,18 @@
 	padding: 100px 0;
 	margin: auto;
 
+	h1{
+		font-family: $font-stack;
+	}
 
 	hr {
 		margin:30px 0;
+		border-color:white;
 	}
 
 	p {
 		margin: 2em 0;
+		font-family: $font-stack;
 	}
 
 	li {
@@ -35,20 +49,13 @@
 	}
 
 	form {
+		font-family: $font-stack;
+
 		.floatRight {
 			float: right;
 		}
 
-		 button,input {
-		  background: #fff;
-		  padding: 10px;
-		  border-radius: 10px;
-		  cursor: pointer;
-		  color: #777;
-		  border: 0;
-		  box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
-		  font-size: 16px;
-		}
+	
 	}
 
 	#create {
@@ -62,16 +69,33 @@
 	width:60%; 
 	padding: 100px 0;
 	margin: auto;
+	font-family: $font-stack;
+
+	hr{
+		border-color:white;
+	}
 
 	#pollQuestion {
-		background-color: #e0e0e0;
+		background-color:#f7f7f7;
+		border-style: solid;
+		border-width:1px;
+
+		h1,p {			
+		  font-family: $font-stack;
+		  margin-left: 1em;
+		}
 	}
 
 	#pollAnswers {
 		width: 50%;
 		margin:auto;
 		margin-top: 3em;
+		margin-bottom: 10em;
 
+		h1 {
+			font-family: $font-stack;
+
+		}
 
 		ul {
 			list-style: none;
@@ -81,6 +105,7 @@
 
 			li{
 				margin-bottom: 2em;
+				font-family: $font-stack;
 
 
 			}
@@ -89,19 +114,12 @@
 				margin-bottom:4em;
 				position:relative;
 
-				button,input {
-				  background: #fff;
-				  padding: 10px;
-				  border-radius: 10px;
-				  cursor: pointer;
-				  color: #777;
-				  border: 0;
-				  box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
-				  font-size: 16px;
-				  position: absolute;
-				  top:25px;
-				  right: 0;
+				#voting {
+					position: absolute;
+					top:25px;
+					right:0;
 				}
+
 
 			}
 
@@ -109,6 +127,18 @@
 		}
 	}
 }
+
+
+	 button,input {
+		  background: #fff;
+		  padding: 10px;
+		  border-radius: 10px;
+		  cursor: pointer;
+		  color: #777;
+		  border: 0;
+		  box-shadow: 2px 2px 2px 2px rgba(20,20,20,0.1);
+		  font-size: 16px;
+		}
 
 .ng-enter {
 	transition:0.75s;

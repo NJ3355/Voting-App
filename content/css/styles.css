@@ -2,69 +2,85 @@
   margin: 0;
   padding: 0; }
 
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #e2e2e2; }
+
 #menu-bar {
   width: 100%;
   padding: 1em 0;
   background-color: teal; }
   #menu-bar h1 {
-    margin-left: 1em; }
+    margin-left: 1em;
+    font-family: "Lato", sans-serif; }
 
 #pollContent {
   width: 60%;
   padding: 100px 0;
   margin: auto; }
+  #pollContent h1 {
+    font-family: "Lato", sans-serif; }
   #pollContent hr {
-    margin: 30px 0; }
+    margin: 30px 0;
+    border-color: white; }
   #pollContent p {
-    margin: 2em 0; }
+    margin: 2em 0;
+    font-family: "Lato", sans-serif; }
   #pollContent li {
     list-style: none;
     margin: 1em 0px; }
-  #pollContent form .floatRight {
-    float: right; }
-  #pollContent form button, #pollContent form input {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #777;
-    border: 0;
-    box-shadow: 2px 2px 2px rgba(20, 20, 20, 0.1);
-    font-size: 16px; }
+  #pollContent form {
+    font-family: "Lato", sans-serif; }
+    #pollContent form .floatRight {
+      float: right; }
   #pollContent #create {
     float: right; }
 
 #poll {
   width: 60%;
   padding: 100px 0;
-  margin: auto; }
+  margin: auto;
+  font-family: "Lato", sans-serif; }
+  #poll hr {
+    border-color: white; }
   #poll #pollQuestion {
-    background-color: #e0e0e0; }
+    background-color: #f7f7f7;
+    border-style: solid;
+    border-width: 1px; }
+    #poll #pollQuestion h1, #poll #pollQuestion p {
+      font-family: "Lato", sans-serif;
+      margin-left: 1em; }
   #poll #pollAnswers {
     width: 50%;
     margin: auto;
-    margin-top: 3em; }
+    margin-top: 3em;
+    margin-bottom: 10em; }
+    #poll #pollAnswers h1 {
+      font-family: "Lato", sans-serif; }
     #poll #pollAnswers ul {
       list-style: none; }
       #poll #pollAnswers ul button {
         float: right; }
       #poll #pollAnswers ul li {
-        margin-bottom: 2em; }
+        margin-bottom: 2em;
+        font-family: "Lato", sans-serif; }
       #poll #pollAnswers ul .w3-progress-container {
         margin-bottom: 4em;
         position: relative; }
-        #poll #pollAnswers ul .w3-progress-container button, #poll #pollAnswers ul .w3-progress-container input {
-          background: #fff;
-          padding: 10px;
-          border-radius: 10px;
-          cursor: pointer;
-          color: #777;
-          border: 0;
-          box-shadow: 2px 2px 2px rgba(20, 20, 20, 0.1);
-          font-size: 16px;
+        #poll #pollAnswers ul .w3-progress-container #voting {
           position: absolute;
           top: 25px;
           right: 0; }
+
+button, input {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #777;
+  border: 0;
+  box-shadow: 2px 2px 2px 2px rgba(20, 20, 20, 0.1);
+  font-size: 16px; }
 
 .ng-enter {
   transition: 0.75s;
