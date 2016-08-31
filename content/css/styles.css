@@ -62,6 +62,7 @@ body {
       #poll #pollAnswers ul button {
         float: right; }
       #poll #pollAnswers ul li {
+        white-space: nowrap;
         margin-bottom: 2em;
         font-family: "Lato", sans-serif; }
       #poll #pollAnswers ul .w3-progress-container {
